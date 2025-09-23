@@ -3,10 +3,11 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
-import { AuthProvider } from "@/components/auth-provider"
+import { AuthProvider } from '@/components/auth/auth-provider'
 import { Toaster } from "@/components/ui/toaster"
 import { Suspense } from "react"
 import "./globals.css"
+
 
 export const metadata: Metadata = {
   title: "Admin Dashboard - User Management",
