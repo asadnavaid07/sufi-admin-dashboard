@@ -12,7 +12,10 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Admin Dashboard - User Management",
   description: "Scalable admin dashboard for user management",
-  generator: "v0.app",
+  
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

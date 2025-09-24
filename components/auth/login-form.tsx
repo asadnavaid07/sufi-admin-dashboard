@@ -329,6 +329,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -432,9 +433,7 @@ export function LoginForm() {
         {/* Logo/Branding */}
         <div className="text-center space-y-2">
           <div className="flex justify-center">
-            <div className="h-16 w-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
-              <Store className="h-8 w-8 text-primary-foreground" />
-            </div>
+            <Image src="/logo.webp" alt="Logo" width={64} height={64} className="h-16 w-16 object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-foreground">Welcome Back</h1>
           <p className="text-muted-foreground">Sign in to your Admin account</p>

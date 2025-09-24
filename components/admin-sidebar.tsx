@@ -28,7 +28,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
       )}
     >
       <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
-        {!isCollapsed && <h2 className="text-lg font-semibold text-sidebar-foreground">Admin Panel</h2>}
+        {!isCollapsed && <h2 className="text-lg font-semibold text-sidebar-foreground">SSC Admin Panel</h2>}
         <Button
           variant="ghost"
           size="sm"
