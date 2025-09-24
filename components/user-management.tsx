@@ -108,7 +108,7 @@ export function UserManagement() {
       </div>
 
       {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardContent className="p-4 md:p-6 flex items-center space-x-3">
             <div className="p-2 rounded-lg bg-green-100">
@@ -152,7 +152,7 @@ export function UserManagement() {
             </div>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
 
       {/* Search + Filters + Table */}
       <Card>

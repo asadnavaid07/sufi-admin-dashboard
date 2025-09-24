@@ -136,7 +136,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       
       // Redirect to login page
       if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+        window.location.href = '/'
       }
     } catch (error) {
       console.error('Logout error:', error)
@@ -253,7 +253,7 @@ export function withAuth<P extends object>(Component: React.ComponentType<P>) {
 
     if (!isAuthenticated) {
       if (typeof window !== 'undefined') {
-        window.location.href = '/login'
+        window.location.href = '/'
       }
       return null
     }

@@ -14,7 +14,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const menuItems = [
-    { id: "overview", label: "Overview", icon: LayoutDashboard },
+
     { id: "users", label: "User Management", icon: Users },
     // { id: "security", label: "Security", icon: Shield },
     // { id: "settings", label: "Settings", icon: Settings },
@@ -23,8 +23,8 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
   return (
     <div
       className={cn(
-        "bg-sidebar border-r border-sidebar-border transition-all duration-300",
-        isCollapsed ? "w-16" : "w-64",
+        "bg-sidebar border-r border-sidebar-border transition-all duration-300 h-full",
+        isCollapsed ? "w-full md:w-16" : "w-full md:w-64",
       )}
     >
       <div className="flex items-center justify-between p-4 border-b border-sidebar-border">

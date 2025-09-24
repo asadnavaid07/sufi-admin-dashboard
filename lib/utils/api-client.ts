@@ -41,7 +41,7 @@ export class ApiClient {
         console.log('No valid token, redirecting to login');
         // Redirect to login or throw error
         if (typeof window !== 'undefined') {
-          window.location.href = '/login'
+          window.location.href = '/'
         }
         throw new Error('Authentication required')
       }
@@ -97,7 +97,7 @@ export class ApiClient {
         } else {
           // Refresh failed, redirect to login
           if (typeof window !== 'undefined') {
-            window.location.href = '/login'
+            window.location.href = '/'
           }
           throw new Error('Session expired')
         }

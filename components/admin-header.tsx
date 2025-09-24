@@ -1,59 +1,68 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu"
-// import { Bell, LogOut, User } from "lucide-react"
+import { Menu } from "lucide-react"
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import { X } from "lucide-react"
+import { AdminSidebar } from "./admin-sidebar"
+import { AuthService } from "@/lib/auth/auth-service"
 
-export function AdminHeader() {
+
+interface AdminHeaderProps {
+  activeSection?: string
+  onSectionChange?: (section: string) => void
+}
+
+export function AdminHeader({ activeSection, onSectionChange }: AdminHeaderProps) {
   return (
-    <header className="bg-sidebar backdrop-blur-md  border-b border-border px-6 py-4">
+    <header className="bg-sidebar backdrop-blur-md  border-b border-border px-4 md:px-6 py-4">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-sidebar-foreground">Dashboard</h1>
-          <p className="text-sidebar-foreground">Welcome back, Admin</p>
+        <div className="flex items-center gap-2">
+          {activeSection && onSectionChange && (
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-sidebar-foreground">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+                {/* <SheetContent side="left" className="p-0 w-full sm:w-80 max-w-[100vw]">
+                  <AdminSidebar activeSection={activeSection} onSectionChange={onSectionChange} />
+                </SheetContent> */}
+                <SheetContent side="left" className="p-0 w-full sm:w-80 max-w-[100vw]">
+                  {/* Custom Close Button (only one!) */}
+                  <div className="flex justify-end p-2">
+                    <SheetClose asChild>
+                      <Button variant="ghost" size="icon" className="text-sidebar-foreground">
+                        <X className="h-5 w-5" />
+                      </Button>
+                    </SheetClose>
+                  </div>
+
+                  {/* Sidebar */}
+                  <AdminSidebar activeSection={activeSection} onSectionChange={onSectionChange} />
+                </SheetContent>
+
+
+
+              </Sheet>
+            </div>
+          )}
+          <div>
+            <h1 className="text-2xl font-bold text-sidebar-foreground">Dashboard</h1>
+            <p className="text-sidebar-foreground">Welcome back, Admin</p>
+          </div>
         </div>
 
-        <div className="flex items-center space-x-4">
-          {/* <Button variant="ghost" size="sm" className="relative" onClick={Router.push(/login-form)}>
-            LogOut
-          </Button> */}
-
-          {/* <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src="/admin-avatar.png" alt="Admin" />
-                  <AvatarFallback>AD</AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-              <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">Admin User</p>
-                  <p className="text-xs leading-none text-muted-foreground">admin@example.com</p>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu> */}
+        <div className="flex items-center space-x-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-sidebar-foreground hover:bg-sidebar-accent"
+            onClick={() => AuthService.logout()}
+          >
+            Logout
+          </Button>
         </div>
       </div>
     </header>
